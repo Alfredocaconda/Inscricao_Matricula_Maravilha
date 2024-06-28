@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::post('/suport', [SuportController::class, 'store'])->name('suport.store');
+Route::get('/suport/create', [SuportController::class, 'create'])->name('suport.create');
 
 Route::get('/contacto', [SiteController::class, 'index']);
 

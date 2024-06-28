@@ -12,4 +12,11 @@ class SuportController extends Controller
         $suports= Suport::all();
         return view('Admin/Suport/index',compact('suports'));
     }
+    public function create(){
+       return view('Admin/Suport/create');
+    }
+    public function store(Request $request){
+
+        dd($request->all());
+    }
 }

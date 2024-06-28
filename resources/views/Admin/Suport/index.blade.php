@@ -1,5 +1,5 @@
 <h2>Listagens dos suportes</h2>
-
+<p><a href="{{route('suport.create')}}">Criar Dúvidas</a></p>
 <table>
     <thead>
         <th>Objectivo</th>
