@@ -2,7 +2,7 @@
 {{--- CODIGO PARA PODER EXIBIR MENSAGEM--}}
 @if ($errors->any())
     @foreach ($errors->all() as $error)
-        {{$error}}
+       <script>alert('{{$error}}');</script>
     @endforeach
 @endif
 <form action="{{route('suport.store')}}" method="post">
