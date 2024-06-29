@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Suport extends Model
 {
     use HasFactory;
+    protected $fillable=[
+        'objectivo',
+        'status',
+        'informacoes'
+    ];
 }
