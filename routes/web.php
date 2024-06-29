@@ -18,6 +18,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+//rota para apagar atributos
+Route::delete('/suport/{id}', [SuportController::class, 'apagar'])->name('suport.apagar');
+//rota que ira atualizar os dados na base de dados
+Route::put('/suport/{id}',[SuportController::class, 'update'])->name('suport.update');
+//rota para atulizar os dados na base de dados
+Route::get('/suport/{id}/edit', [SuportController::class, 'edit'])->name('suport.edit');
 //rota para inserir os valores no suport
 Route::get('/suport/create', [SuportController::class, 'create'])->name('suport.create');
 //rota para poder editar os valores enviado na base de dados de suportes
