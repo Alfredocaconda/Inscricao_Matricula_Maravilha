@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreSuportRequest extends FormRequest
 {
@@ -22,7 +23,8 @@ class StoreSuportRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
+        //rules->regras
+        $rules=[
             //Para poder validar
             'objectivo'=>'required|min:3|max:255|unique:suports',
             'informacoes'=>[
@@ -31,5 +33,22 @@ class StoreSuportRequest extends FormRequest
                 'max:10000'
             ],
         ];
+        //condicao para mudar para o update
+        if ($this->method()==='PUT') {
+            # code...
+            $rules['objectivo']=[
+                'required',
+                'min:3',
+                'max:255',
+                //uma das formas de validar os campos unicos
+                //"unique:suports,objectivo,{$this->id},id"
+                //validando o campo unico
+                Rule::unique('suports')->ignore($this->id),
+            ];
+        } else {
+            # code...
+        }
+
+        return $rules;
     }
 }
